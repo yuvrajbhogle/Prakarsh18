@@ -1,0 +1,306 @@
+:root {
+  --container-bg-color: #333;
+  --left-bg-color: rgba(223, 39, 39, 0.7);
+  --left-button-hover-color: rgba(161, 11, 11, 0.3);
+  --right-bg-color: rgba(43, 43, 43, 0.8);
+  --right-button-hover-color: rgba(92, 92, 92, 0.3);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
+}
+
+html, body {
+  padding:0;
+  margin:0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  width: 100%;
+  height: 150%;
+  /* overflow-x: hidden; */
+}
+.banner{
+  height: 100vh;
+  /* position: relative; */
+  /* top:70%; */
+  /* left: 50%; */
+  /* transition: translate(-50%,-50%); */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+.banner h1{
+  font-family: myFirstFont;
+  letter-spacing: 4px;
+  color:#000;
+   text-shadow: 4px 4px #fff;
+
+  /* color:#3498db; */
+}
+
+h1 {
+  padding-top: 20px;
+  padding-bottom: -90px;
+  font-size: 3.2rem;
+  color: #fff;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+.split.left .button:hover {
+  background-color: var(--left-button-hover-color);
+  border-color: var(--left-button-hover-color);
+}
+
+.split.right .button:hover {
+  background-color: var(--right-button-hover-color);
+  border-color: var(--right-button-hover-color);
+}
+
+.containe {
+  position: relative;
+  width: 100%;
+  height: 200%;
+  background: var(--container-bg-color);
+}
+
+.split {
+  position: absolute;
+  width: 50%;
+  height: 150%;
+  overflow: hidden;
+}
+
+.split.left {
+  left:0;
+  /* background: url('https://image.ibb.co/m56Czw/designer.jpg') center center no-repeat; */
+  background: url('../images/14.jpg') repeat;
+  /* background-size: cover; */
+}
+.split.left h1{
+  font-family: myFirstFont;
+  letter-spacing: 3px;
+
+}
+.split.right h1{
+  font-family: myFirstFont;
+  letter-spacing: 3px;
+
+}
+
+.split.left:before {
+  position:absolute;
+  content: "";
+  width: 100%;
+  height: 150%;
+  background: var(--left-bg-color);
+}
+
+.split.right {
+  right:0;
+  background: url('../images/6.jpg') repeat;
+  /* background: url('https://image.ibb.co/m3ZbRb/programmer.png') center center no-repeat; */
+  /* background-size: cover; */
+}
+
+.split.right:before {
+  position:absolute;
+  content: "";
+  width: 100%;
+  height: 150%;
+  background: var(--right-bg-color);
+}
+
+.split.left, .split.right, .split.right:before, .split.left:before {
+  transition: var(--speed) all ease-in-out;
+}
+
+.hover-left .left {
+  width: var(--hover-width);
+}
+
+.hover-left .right {
+  width: var(--other-width);
+}
+
+.hover-left .right:before {
+  z-index: 2;
+}
+
+
+.hover-right .right {
+  width: var(--hover-width);
+}
+
+.hover-right .left {
+  width: var(--other-width);
+}
+
+.hover-right .left:before {
+  z-index: 2;
+}
+
+@media(max-width: 800px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .button {
+    width: 12rem;
+  }
+}
+
+@media(max-height: 700px) {
+  .button {
+    top: 70%;
+  }
+}
+
+
+.our-team{
+    text-align: center;
+    /* overflow:  hidden; */
+    position: relative;
+    margin-top: 90px;
+}
+.our-team img{
+
+    margin: 0 auto;
+    border: 5px solid #fff;
+    border-radius: 50%;s
+    transition: all 0.75s ease 0.01s; */
+}
+.our-team:hover img{ opacity: 0.7; }
+.our-team .team-content{
+    padding: 10px 15px 10px;
+    position: absolute;
+    width: 25%;
+    top: 62%;
+    left: 48%;
+    opacity: 0;
+    transform: rotate(30deg) translate(-50%, -50%);
+    transform-origin: 0 0;
+    transition: all 0.65s ease 0s;
+}
+  .our-team:hover .team-content{
+    opacity: 1;
+ }
+.our-team .team-content:before,
+.our-team .team-content:after{
+    content: "";
+    width: 100%;
+    height: 2px;
+    background:  #1565c0;
+    /* background: #fff; */
+    position: absolute;
+    top: 0;
+    left: 10px;
+    transform: translateX(100%);
+    transition: all 0.75s ease 0s;
+}
+.our-team .team-content:after{
+    top: auto;
+    left: auto;
+    bottom: 0;
+    right: 10px;
+    transform: translateX(-100%);
+}
+.our-team:hover .team-content:before,
+.our-team:hover .team-content:after{
+    transform: translate(0, 0);
+    transition-delay: 0.25s;
+}
+.our-team .title{
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+}
+.our-team .title:before,
+.our-team .title:after{
+    content: "";
+    width: 2px;
+    height: 100%;
+    background: #1565c0;
+    /* background: #fff; */
+    position: absolute;
+    top: 10px;
+    right: 0;
+    transform: translateY(100%);
+    transition: all 0.55s ease 0s;
+}
+.our-team .title:after{
+    top: auto;
+    right: auto;
+    bottom: 10px;
+    left: 0;
+    transform: translateY(-100%);
+}
+.our-team:hover .title:before,
+.our-team:hover .title:after{
+    transform: translate(0, 0);
+}
+.our-team .post{
+    display: block;
+    padding: 5px 10px;
+    /* background: #95ccea; */
+    background: #1565c0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: capitalize;
+}
+@media only screen and (max-width: 990px){
+    .our-team{ margin-bottom: 30px; }
+}
+
+
+@media(max-width: 800px) {
+
+  .our-team{
+      text-align: center;
+      /* overflow:  hidden; */
+      position: relative;
+      margin-top: 50px;
+  }
+  .our-team img {
+    margin: 0 auto;
+    width:160px;
+    height:160px;
+    border: 2px solid white;
+    border-radius: 50%;
+  }
+  .our-team .team-content{
+      width:50%;
+      padding: 10px 10px 10px;
+      position: absolute;
+      top: 65%;
+      left: 48%;
+      opacity: 0;
+      transform: rotate(30deg) translate(-50%, -50%);
+      transform-origin: 0 0;
+      transition: all 0.65s ease 0s;
+  }
+  .our-team .title{
+    opacity: 1;
+      font-size: 15px;
+      font-weight: 400;
+      color: #fff;
+      text-transform: uppercase;
+      margin: 0;
+  }
+  .our-team .post{
+    opacity: 0.75;
+      display: block;
+
+      padding: 5px 10px;
+      /* background: #95ccea; */
+      background: #191970;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: capitalize;
+  }
+
+}
